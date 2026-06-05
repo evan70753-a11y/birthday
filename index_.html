@@ -63,21 +63,48 @@ body{font-family:Poppins,sans-serif;background:#fff;overflow-x:hidden}
 </section>
 
 <script>
-let autoScroll;
+let autoScrolling = false;
+
+function startAutoScroll(){
+
+autoScrolling = true;
+
+function step(){
+
+if(!autoScrolling) return;
+
+window.scrollBy(0,1);
+
+requestAnimationFrame(step);
+
+}
+
+requestAnimationFrame(step);
+
+}
 
 function openGift(){
+
 document.getElementById('music').play().catch(()=>{});
-window.scrollTo({top:window.innerHeight,behavior:'smooth'});
-confetti({particleCount:250,spread:180,origin:{y:0.6}});
+
+window.scrollTo({
+top:window.innerHeight,
+behavior:'smooth'
+});
+
+confetti({
+particleCount:250,
+spread:180,
+origin:{y:0.6}
+});
 
 setInterval(heart,400);
 setInterval(star,700);
 
 setTimeout(()=>{
-autoScroll=setInterval(()=>{
-window.scrollBy(0,1);
-},20);
+startAutoScroll();
 },2000);
+
 }
 
 function heart(){
@@ -105,8 +132,12 @@ setTimeout(()=>e.remove(),9000);
 const letter=document.getElementById('letter');
 window.addEventListener('scroll',()=>{
 if(window.scrollY>=letter.offsetTop-100){
-clearInterval(autoScroll);
-document.getElementById('autoText').innerHTML='💌 Silakan lanjut membaca';
+
+autoScrolling = false;
+
+document.getElementById('autoText').innerHTML =
+'💌 Silakan lanjut membaca';
+
 }
 });
 </script>
