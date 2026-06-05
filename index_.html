@@ -63,52 +63,89 @@ body{font-family:Poppins,sans-serif;background:#fff;overflow-x:hidden}
 </section>
 
 <script>
+```javascript
 let autoScroll;
+let scrolling = false;
 
 function openGift(){
+
+if(scrolling) return;
+scrolling = true;
+
 document.getElementById('music').play().catch(()=>{});
-window.scrollTo({top:window.innerHeight,behavior:'smooth'});
-confetti({particleCount:250,spread:180,origin:{y:0.6}});
+
+confetti({
+particleCount:250,
+spread:180,
+origin:{y:0.6}
+});
 
 setInterval(heart,400);
 setInterval(star,700);
 
-setTimeout(()=>{
-autoScroll=setInterval(()=>{
-window.scrollBy(0,1);
-},20);
-},2000);
+window.scrollTo({
+top:window.innerHeight,
+behavior:'smooth'
+});
+
+setTimeout(() => {
+
+autoScroll = setInterval(() => {
+
+window.scrollBy(0,2);
+
+const letter = document.getElementById('letter');
+
+if(window.scrollY >= letter.offsetTop - 150){
+
+clearInterval(autoScroll);
+
+document.getElementById('autoText').innerHTML =
+'💌 Silakan lanjut membaca';
+
+}
+
+},16);
+
+},1500);
+
 }
 
 function heart(){
+
 const e=document.createElement('div');
+
 e.className='heart';
 e.innerHTML='❤️';
+
 e.style.left=Math.random()*100+'vw';
 e.style.fontSize=(20+Math.random()*20)+'px';
 e.style.animationDuration=(4+Math.random()*4)+'s';
+
 document.body.appendChild(e);
-setTimeout(()=>e.remove(),8000);
+
+setTimeout(()=>{
+e.remove();
+},8000);
+
 }
 
 function star(){
+
 const e=document.createElement('div');
+
 e.className='sparkle';
 e.innerHTML=['✨','⭐','💖'][Math.floor(Math.random()*3)];
+
 e.style.left=Math.random()*100+'vw';
 e.style.fontSize=(18+Math.random()*15)+'px';
 e.style.animationDuration=(5+Math.random()*4)+'s';
-document.body.appendChild(e);
-setTimeout(()=>e.remove(),9000);
-}
 
-const letter=document.getElementById('letter');
-window.addEventListener('scroll',()=>{
-if(window.scrollY>=letter.offsetTop-100){
-clearInterval(autoScroll);
-document.getElementById('autoText').innerHTML='💌 Silakan lanjut membaca';
+document.body.appendChild(e);
+
+setTimeout(()=>{
+e.remove();
+},9000);
+
 }
-});
-</script>
-</body>
-</html>
+```
