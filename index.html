@@ -3,54 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Salsa ❤️</title>
+
+<title>Happy Birthday Cacut ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-height:100vh;
-overflow:hidden;
-display:flex;
-justify-content:center;
-align-items:center;
+background:
+linear-gradient(
+135deg,
+#ff758c,
+#ff7eb3,
+#ffd3a5
+);
+min-height:100vh;
+overflow-x:hidden;
+padding:30px 15px;
 }
 
 .container{
-text-align:center;
-color:white;
+max-width:900px;
+margin:auto;
 }
 
 .card{
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(10px);
-padding:30px;
-border-radius:25px;
-width:90%;
-max-width:500px;
-box-shadow:0 0 25px rgba(0,0,0,0.2);
+background:rgba(255,255,255,0.18);
+backdrop-filter:blur(15px);
+-webkit-backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.3);
+border-radius:30px;
+padding:35px;
+text-align:center;
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+color:white;
 }
 
 h1{
-font-size:2.5rem;
+font-size:3rem;
+font-weight:700;
 margin-bottom:10px;
 }
 
+h2{
+font-weight:500;
+margin-bottom:15px;
+}
+
+.subtitle{
+font-size:18px;
+opacity:.95;
+}
+
 button{
-padding:15px 30px;
+margin-top:25px;
+padding:15px 35px;
 border:none;
 border-radius:50px;
-background:#ff4081;
-color:white;
+background:white;
+color:#ff4f8b;
 font-size:18px;
+font-weight:600;
 cursor:pointer;
-margin-top:20px;
 transition:.3s;
 }
 
@@ -63,42 +87,73 @@ display:none;
 }
 
 .slider{
-width:250px;
-height:320px;
-margin:20px auto;
+width:340px;
+height:440px;
+margin:30px auto;
 overflow:hidden;
-border-radius:20px;
-box-shadow:0 0 20px rgba(255,255,255,.4);
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
 .slider img{
 width:100%;
 height:100%;
 object-fit:cover;
+transition:1s;
 }
 
 #message{
-font-size:18px;
-line-height:1.6;
-padding:15px;
+font-size:20px;
+line-height:1.9;
+white-space:pre-line;
+padding:10px;
 }
 
 .heart{
-position:absolute;
-font-size:25px;
+position:fixed;
+font-size:24px;
+pointer-events:none;
 animation:fall linear forwards;
+z-index:999;
 }
 
 @keyframes fall{
+
 0%{
 transform:translateY(-100px);
 opacity:1;
 }
+
 100%{
 transform:translateY(110vh);
 opacity:0;
 }
+
 }
+
+.footer{
+margin-top:30px;
+font-size:14px;
+opacity:.8;
+}
+
+@media(max-width:600px){
+
+h1{
+font-size:2.2rem;
+}
+
+.slider{
+width:280px;
+height:360px;
+}
+
+#message{
+font-size:17px;
+}
+
+}
+
 </style>
 </head>
 
@@ -107,27 +162,34 @@ opacity:0;
 <div class="container">
 
 <div class="card" id="cover">
-<h1>🎂 Happy Birthday 🎂</h1>
-<h2>Salsa ❤️</h2>
 
-<p style="margin-top:15px">
-Ada hadiah kecil yang menunggumu...
+<h1>🎂 Happy Birthday 🎂</h1>
+
+<h2>Cacut ❤️</h2>
+
+<p class="subtitle">
+Hari ini ada hadiah kecil yang menunggumu ✨
 </p>
 
 <button onclick="openGift()">
 🎁 Buka Hadiah
 </button>
+
 </div>
 
 <div class="card" id="content">
 
-<h1>Happy Birthday Salsa ❤️</h1>
+<h1>Happy Birthday Cacut ❤️</h1>
 
 <div class="slider">
 <img id="slide" src="caca1.jpeg">
 </div>
 
-<p id="message"></p>
+<div id="message"></div>
+
+<div class="footer">
+Made with ❤️
+</div>
 
 </div>
 
@@ -148,69 +210,92 @@ const photos=[
 let current=0;
 
 setInterval(()=>{
+
 const slide=document.getElementById("slide");
+
 if(slide){
+
 current=(current+1)%photos.length;
 slide.src=photos[current];
+
 }
+
 },3000);
 
 const text=`
 
-Selamat ulang tahun, Salsa ✨
+Selamat ulang tahun, Cacut ✨
 
 Semoga di usia yang baru ini,
 kamu selalu diberikan kesehatan,
-kebahagiaan, dan keberanian untuk
-mengejar semua impian yang kamu inginkan.
+kebahagiaan, dan banyak alasan untuk tersenyum.
 
-Semoga setiap langkahmu dipenuhi
-hal-hal baik, setiap harimu dipenuhi
-senyum, dan setiap doamu menemukan
-jalan terbaik untuk terwujud.
+Semoga semua hal baik yang kamu usahakan
+dapat menemukan jalannya untuk menjadi kenyataan.
 
 Terima kasih sudah menjadi pribadi
-yang begitu berarti dan membawa
-warna yang indah bagi banyak orang.
+yang membawa warna indah
+bagi orang-orang di sekitarmu.
+
+Semoga hari-harimu dipenuhi tawa,
+langkahmu dipenuhi keberanian,
+dan mimpimu dipenuhi harapan yang terus tumbuh.
 
 Hari ini adalah harimu.
 
 Nikmati setiap momennya,
 tertawa lebih banyak,
-dan jangan lupa untuk selalu
-menghargai dirimu sendiri.
+dan jangan lupa untuk selalu menghargai
+dirimu sendiri.
 
-Happy Birthday Salsa ❤️🎂✨
+Karena kamu pantas mendapatkan
+banyak kebahagiaan.
+
+Happy Birthday Cacut ❤️🎂✨
 
 `;
 
 function typeWriter(){
+
 let i=0;
-const speed=40;
 
 function typing(){
+
 if(i<text.length){
+
 document.getElementById("message").innerHTML+=text.charAt(i);
+
 i++;
-setTimeout(typing,speed);
+
+setTimeout(typing,35);
+
 }
+
 }
+
 typing();
+
 }
 
 function openGift(){
 
 document.getElementById("cover").style.display="none";
+
 document.getElementById("content").style.display="block";
 
 const music=document.getElementById("music");
 
-music.currentTime=0;
 music.play();
+
+confetti({
+particleCount:250,
+spread:180,
+origin:{y:0.6}
+});
 
 typeWriter();
 
-setInterval(createHeart,300);
+setInterval(createHeart,250);
 
 }
 
@@ -218,17 +303,22 @@ function createHeart(){
 
 const heart=document.createElement("div");
 
-heart.classList.add("heart");
+heart.className="heart";
+
 heart.innerHTML="❤️";
 
 heart.style.left=Math.random()*100+"vw";
-heart.style.animationDuration=(3+Math.random()*3)+"s";
+
+heart.style.animationDuration=
+(3+Math.random()*4)+"s";
 
 document.body.appendChild(heart);
 
 setTimeout(()=>{
+
 heart.remove();
-},6000);
+
+},7000);
 
 }
 
