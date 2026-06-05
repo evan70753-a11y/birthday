@@ -3,60 +3,235 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Happy Birthday</title>
+<title>Happy Birthday Salsa ❤️</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
 body{
-    margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-    font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.container{
+text-align:center;
+color:white;
 }
 
 .card{
-    background:white;
-    padding:30px;
-    border-radius:20px;
-    text-align:center;
-    width:350px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:25px;
+width:90%;
+max-width:500px;
+box-shadow:0 0 25px rgba(0,0,0,0.2);
+}
+
+h1{
+font-size:2.5rem;
+margin-bottom:10px;
 }
 
 button{
-    padding:10px 20px;
-    border:none;
-    border-radius:10px;
-    background:#ff4081;
-    color:white;
-    cursor:pointer;
+padding:15px 30px;
+border:none;
+border-radius:50px;
+background:#ff4081;
+color:white;
+font-size:18px;
+cursor:pointer;
+margin-top:20px;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+#content{
+display:none;
+}
+
+.slider{
+width:250px;
+height:320px;
+margin:20px auto;
+overflow:hidden;
+border-radius:20px;
+box-shadow:0 0 20px rgba(255,255,255,.4);
+}
+
+.slider img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+#message{
+font-size:18px;
+line-height:1.6;
+padding:15px;
+}
+
+.heart{
+position:absolute;
+font-size:25px;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-100px);
+opacity:1;
+}
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
-    <h1>🎉 Happy Birthday 🎉</h1>
-    <h2>Nama Dia</h2>
+<div class="container">
 
-    <p>
-        Semoga panjang umur, sehat selalu,
-        dan semua impianmu tercapai ❤️
-    </p>
+<div class="card" id="cover">
+<h1>🎂 Happy Birthday 🎂</h1>
+<h2>Salsa ❤️</h2>
 
-    <button onclick="ucapan()">
-        Klik Aku
-    </button>
+<p style="margin-top:15px">
+Ada hadiah kecil yang menunggumu...
+</p>
+
+<button onclick="openGift()">
+🎁 Buka Hadiah
+</button>
 </div>
 
+<div class="card" id="content">
+
+<h1>Happy Birthday Salsa ❤️</h1>
+
+<div class="slider">
+<img id="slide" src="caca1.jpeg">
+</div>
+
+<p id="message"></p>
+
+</div>
+
+</div>
+
+<audio id="music">
+<source src="serta-mulia.mpeg" type="audio/mpeg">
+</audio>
+
 <script>
-function ucapan(){
-    alert("Selamat ulang tahun, semoga hari ini penuh kebahagiaan ❤️");
+
+const photos=[
+"caca1.jpeg",
+"caca2.jpeg",
+"caca3.jpeg"
+];
+
+let current=0;
+
+setInterval(()=>{
+const slide=document.getElementById("slide");
+if(slide){
+current=(current+1)%photos.length;
+slide.src=photos[current];
 }
+},3000);
+
+const text=`
+
+Selamat ulang tahun, Salsa ✨
+
+Semoga di usia yang baru ini,
+kamu selalu diberikan kesehatan,
+kebahagiaan, dan keberanian untuk
+mengejar semua impian yang kamu inginkan.
+
+Semoga setiap langkahmu dipenuhi
+hal-hal baik, setiap harimu dipenuhi
+senyum, dan setiap doamu menemukan
+jalan terbaik untuk terwujud.
+
+Terima kasih sudah menjadi pribadi
+yang begitu berarti dan membawa
+warna yang indah bagi banyak orang.
+
+Hari ini adalah harimu.
+
+Nikmati setiap momennya,
+tertawa lebih banyak,
+dan jangan lupa untuk selalu
+menghargai dirimu sendiri.
+
+Happy Birthday Salsa ❤️🎂✨
+
+`;
+
+function typeWriter(){
+let i=0;
+const speed=40;
+
+function typing(){
+if(i<text.length){
+document.getElementById("message").innerHTML+=text.charAt(i);
+i++;
+setTimeout(typing,speed);
+}
+}
+typing();
+}
+
+function openGift(){
+
+document.getElementById("cover").style.display="none";
+document.getElementById("content").style.display="block";
+
+const music=document.getElementById("music");
+
+music.currentTime=0;
+music.play();
+
+typeWriter();
+
+setInterval(createHeart,300);
+
+}
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.classList.add("heart");
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(3+Math.random()*3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+}
+
 </script>
 
 </body>
