@@ -6,7 +6,7 @@
 
 <title>Happy Birthday Cacut ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
@@ -16,20 +16,19 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
 }
 
 body{
-background:
-linear-gradient(
+font-family:'Quicksand',sans-serif;
+background:linear-gradient(
 135deg,
-#ff758c,
-#ff7eb3,
-#ffd3a5
+#ff6b9d,
+#c471ed,
+#12c2e9
 );
 min-height:100vh;
 overflow-x:hidden;
-padding:30px 15px;
+padding:20px;
 }
 
 .container{
@@ -38,21 +37,24 @@ margin:auto;
 }
 
 .card{
-background:rgba(255,255,255,0.18);
-backdrop-filter:blur(15px);
--webkit-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,0.3);
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.25);
 border-radius:30px;
 padding:35px;
 text-align:center;
-box-shadow:0 15px 40px rgba(0,0,0,.15);
 color:white;
+box-shadow:0 20px 50px rgba(0,0,0,.15);
 }
 
 h1{
-font-size:3rem;
-font-weight:700;
+font-family:'Playfair Display',serif;
+font-size:3.2rem;
 margin-bottom:10px;
+text-shadow:
+0 0 15px rgba(255,255,255,.6),
+0 0 30px rgba(255,255,255,.3);
 }
 
 h2{
@@ -60,36 +62,25 @@ font-weight:500;
 margin-bottom:15px;
 }
 
-.subtitle{
-font-size:18px;
-opacity:.95;
-}
-
-button{
-margin-top:25px;
-padding:15px 35px;
-border:none;
-border-radius:50px;
-background:white;
-color:#ff4f8b;
-font-size:18px;
-font-weight:600;
-cursor:pointer;
-transition:.3s;
-}
-
-button:hover{
-transform:scale(1.05);
-}
-
 #content{
 display:none;
 }
 
+.envelope{
+font-size:90px;
+cursor:pointer;
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
+
 .slider{
 width:340px;
-height:440px;
-margin:30px auto;
+height:450px;
+margin:25px auto;
 overflow:hidden;
 border-radius:25px;
 box-shadow:0 10px 30px rgba(0,0,0,.25);
@@ -99,42 +90,52 @@ box-shadow:0 10px 30px rgba(0,0,0,.25);
 width:100%;
 height:100%;
 object-fit:cover;
-transition:1s;
 }
 
-#message{
-font-size:20px;
+.letter{
+background:rgba(255,255,255,.18);
+border-radius:20px;
+padding:20px;
+margin:15px 0;
+font-size:18px;
 line-height:1.9;
-white-space:pre-line;
-padding:10px;
+opacity:0;
+transform:translateY(30px);
 }
 
-.heart{
+.fadeUp{
+animation:fadeUp 1s forwards;
+}
+
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.footer{
+margin-top:25px;
+opacity:.8;
+}
+
+.heart,
+.sparkle{
 position:fixed;
-font-size:24px;
 pointer-events:none;
-animation:fall linear forwards;
 z-index:999;
+animation:fall linear forwards;
 }
 
 @keyframes fall{
-
 0%{
 transform:translateY(-100px);
 opacity:1;
 }
-
 100%{
 transform:translateY(110vh);
 opacity:0;
 }
-
-}
-
-.footer{
-margin-top:30px;
-font-size:14px;
-opacity:.8;
 }
 
 @media(max-width:600px){
@@ -148,32 +149,34 @@ width:280px;
 height:360px;
 }
 
-#message{
-font-size:17px;
+.letter{
+font-size:16px;
 }
 
 }
 
 </style>
 </head>
-
 <body>
 
 <div class="container">
 
 <div class="card" id="cover">
 
-<h1>🎂 Happy Birthday 🎂</h1>
+<h1>Happy Birthday ❤️</h1>
+<h2>Cacut</h2>
 
-<h2>Cacut ❤️</h2>
-
-<p class="subtitle">
-Hari ini ada hadiah kecil yang menunggumu ✨
+<p style="margin-bottom:20px">
+Ada sesuatu untukmu ✨
 </p>
 
-<button onclick="openGift()">
-🎁 Buka Hadiah
-</button>
+<div class="envelope" onclick="openGift()">
+💌
+</div>
+
+<p style="margin-top:10px">
+Klik amplop untuk membuka hadiah
+</p>
 
 </div>
 
@@ -185,7 +188,41 @@ Hari ini ada hadiah kecil yang menunggumu ✨
 <img id="slide" src="caca1.jpeg">
 </div>
 
-<div id="message"></div>
+<div id="letters">
+
+<div class="letter">
+💌 Selamat ulang tahun, Cacut ✨
+</div>
+
+<div class="letter">
+Semoga di usia yang baru ini kamu selalu diberikan kesehatan, kebahagiaan, dan banyak alasan untuk tersenyum setiap harinya.
+</div>
+
+<div class="letter">
+Semoga semua hal baik yang sedang kamu perjuangkan dapat menemukan jalannya untuk menjadi kenyataan.
+</div>
+
+<div class="letter">
+Terima kasih sudah menjadi pribadi yang membawa warna indah bagi orang-orang di sekitarmu.
+</div>
+
+<div class="letter">
+Semoga langkahmu selalu dipenuhi keberanian, hatimu dipenuhi ketenangan, dan harimu dipenuhi kebahagiaan.
+</div>
+
+<div class="letter">
+Hari ini adalah harimu. Nikmati setiap momennya, tertawa lebih banyak, dan jangan lupa untuk selalu menghargai dirimu sendiri.
+</div>
+
+<div class="letter">
+Karena kamu pantas mendapatkan banyak hal baik dalam hidup. ❤️
+</div>
+
+<div class="letter">
+🎂 Happy Birthday, Cacut 🎂
+</div>
+
+</div>
 
 <div class="footer">
 Made with ❤️
@@ -222,80 +259,33 @@ slide.src=photos[current];
 
 },3000);
 
-const text=`
-
-Selamat ulang tahun, Cacut ✨
-
-Semoga di usia yang baru ini,
-kamu selalu diberikan kesehatan,
-kebahagiaan, dan banyak alasan untuk tersenyum.
-
-Semoga semua hal baik yang kamu usahakan
-dapat menemukan jalannya untuk menjadi kenyataan.
-
-Terima kasih sudah menjadi pribadi
-yang membawa warna indah
-bagi orang-orang di sekitarmu.
-
-Semoga hari-harimu dipenuhi tawa,
-langkahmu dipenuhi keberanian,
-dan mimpimu dipenuhi harapan yang terus tumbuh.
-
-Hari ini adalah harimu.
-
-Nikmati setiap momennya,
-tertawa lebih banyak,
-dan jangan lupa untuk selalu menghargai
-dirimu sendiri.
-
-Karena kamu pantas mendapatkan
-banyak kebahagiaan.
-
-Happy Birthday Cacut ❤️🎂✨
-
-`;
-
-function typeWriter(){
-
-let i=0;
-
-function typing(){
-
-if(i<text.length){
-
-document.getElementById("message").innerHTML+=text.charAt(i);
-
-i++;
-
-setTimeout(typing,35);
-
-}
-
-}
-
-typing();
-
-}
-
 function openGift(){
 
 document.getElementById("cover").style.display="none";
-
 document.getElementById("content").style.display="block";
 
-const music=document.getElementById("music");
-
-music.play();
+document.getElementById("music").play();
 
 confetti({
-particleCount:250,
+particleCount:300,
 spread:180,
 origin:{y:0.6}
 });
 
-typeWriter();
+const letters=document.querySelectorAll(".letter");
 
-setInterval(createHeart,250);
+letters.forEach((item,index)=>{
+
+setTimeout(()=>{
+
+item.classList.add("fadeUp");
+
+},index*700);
+
+});
+
+setInterval(createHeart,300);
+setInterval(createSparkle,500);
 
 }
 
@@ -304,21 +294,40 @@ function createHeart(){
 const heart=document.createElement("div");
 
 heart.className="heart";
-
 heart.innerHTML="❤️";
 
 heart.style.left=Math.random()*100+"vw";
-
-heart.style.animationDuration=
-(3+Math.random()*4)+"s";
+heart.style.fontSize=(20+Math.random()*15)+"px";
+heart.style.animationDuration=(4+Math.random()*4)+"s";
 
 document.body.appendChild(heart);
 
 setTimeout(()=>{
-
 heart.remove();
+},8000);
 
-},7000);
+}
+
+function createSparkle(){
+
+const sparkle=document.createElement("div");
+
+sparkle.className="sparkle";
+
+const icons=["✨","⭐","💖"];
+
+sparkle.innerHTML=
+icons[Math.floor(Math.random()*icons.length)];
+
+sparkle.style.left=Math.random()*100+"vw";
+sparkle.style.fontSize=(18+Math.random()*15)+"px";
+sparkle.style.animationDuration=(5+Math.random()*4)+"s";
+
+document.body.appendChild(sparkle);
+
+setTimeout(()=>{
+sparkle.remove();
+},9000);
 
 }
 
