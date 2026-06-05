@@ -9,63 +9,27 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:Poppins,sans-serif;background:#fff;color:#333;overflow-x:hidden}
-section{position:relative}
-.hero{
-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff
-}
-.hero::before{
-content:"";position:absolute;inset:0;background:url('caca1.jpeg') center/cover;
-filter:blur(5px) brightness(.6);transform:scale(1.08)
-}
-.hero-content{position:relative;z-index:2;padding:20px}
-.hero h1{font-family:"Cormorant Garamond",serif;font-size:5rem}
-.hero p{letter-spacing:3px}
-.btn{
-margin-top:25px;padding:15px 35px;border:none;border-radius:50px;
-background:#fff;color:#ff4f8b;font-weight:600;cursor:pointer
-}
-.story{
-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff
-}
+body{font-family:Poppins,sans-serif;background:#fff;overflow-x:hidden}
+.hero{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;position:relative}
+.hero:before{content:"";position:absolute;inset:0;background:url('caca1.jpeg') center/cover;filter:blur(5px) brightness(.55);transform:scale(1.08)}
+.hero-content{position:relative;z-index:2}
+.hero h1,.final h1{font-family:'Cormorant Garamond',serif;font-size:5rem}
+.btn{margin-top:20px;padding:15px 35px;border:none;border-radius:50px;background:#fff;color:#ff4f8b;font-weight:600;cursor:pointer}
+.story{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
 .story img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.45)}
-.story .text{position:relative;z-index:2;max-width:800px;padding:20px}
-.story h2{font-family:"Cormorant Garamond",serif;font-size:4rem;margin-bottom:15px}
-.story p{font-size:1.2rem;line-height:2}
-.letter{
-padding:100px 20px;background:linear-gradient(180deg,#fff5f8,#ffe3ee)
-}
-.card{
-max-width:900px;margin:auto;background:white;padding:40px;border-radius:30px;
-box-shadow:0 15px 40px rgba(0,0,0,.08)
-}
-.card h2{font-family:"Cormorant Garamond",serif;font-size:3rem;color:#ff4f8b;margin-bottom:20px}
-.card p{line-height:2;font-size:1.1rem;margin-bottom:15px}
-.final{
-height:100vh;background:linear-gradient(135deg,#ff8ab5,#ff5f96,#ffc2d6);
-display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:20px
-}
-.final h1{font-family:"Cormorant Garamond",serif;font-size:5rem}
-.final p{font-size:1.2rem;margin-top:15px}
-.heart,.sparkle{
-position:fixed;pointer-events:none;z-index:9999;animation:fall linear forwards
-}
-@keyframes fall{
-from{transform:translateY(-100px);opacity:1}
-to{transform:translateY(110vh);opacity:0}
-}
-@media(max-width:768px){
-.hero h1,.final h1{font-size:3rem}
-.story h2{font-size:2.4rem}
-.story p,.card p{font-size:1rem}
-}
+.story .text{position:relative;z-index:2;max-width:700px;padding:20px}
+.story h2{font-family:'Cormorant Garamond',serif;font-size:3.5rem}
+.letter{padding:100px 20px;background:#fff5f8}
+.card{max-width:900px;margin:auto;background:#fff;padding:40px;border-radius:25px;box-shadow:0 10px 40px rgba(0,0,0,.08)}
+.final{height:100vh;background:linear-gradient(135deg,#ff8ab5,#ff5f96,#ffc2d6);display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
+.heart,.sparkle{position:fixed;pointer-events:none;z-index:9999;animation:fall linear forwards}
+@keyframes fall{from{transform:translateY(-100px)}to{transform:translateY(110vh);opacity:0}}
+#autoText{margin-top:15px;opacity:.85}
+@media(max-width:768px){.hero h1,.final h1{font-size:3rem}.story h2{font-size:2.2rem}}
 </style>
 </head>
 <body>
-
-<audio id="music" loop>
-<source src="serta-mulia.mpeg" type="audio/mpeg">
-</audio>
+<audio id="music" loop><source src="serta-mulia.mpeg" type="audio/mpeg"></audio>
 
 <section class="hero">
 <div class="hero-content">
@@ -73,42 +37,20 @@ to{transform:translateY(110vh);opacity:0}
 <h1>CACUT ❤️</h1>
 <p>18 Juni 2026</p>
 <button class="btn" onclick="openGift()">Buka Hadiah</button>
+<p id="autoText">✨ Nikmati Ceritanya ✨</p>
 </div>
 </section>
 
-<section class="story">
-<img src="caca1.jpeg">
-<div class="text">
-<h2>Untuk Cacut ❤️</h2>
-<p>Ada banyak hari yang datang dan pergi, tetapi hari ini terasa sedikit berbeda.</p>
-</div>
-</section>
+<section class="story"><img src="caca1.jpeg"><div class="text"><h2>Untuk Cacut ❤️</h2><p>Ada banyak hari yang datang dan pergi, tetapi hari ini terasa sedikit berbeda.</p></div></section>
+<section class="story"><img src="caca2.jpeg"><div class="text"><h2>Seseorang yang Spesial ✨</h2><p>Karena hari ini adalah hari seseorang yang pantas mendapatkan banyak kebahagiaan dan senyum.</p></div></section>
+<section class="story"><img src="caca3.jpeg"><div class="text"><h2>Harapan Terbaik 🌷</h2><p>Semoga setiap langkahmu dipenuhi cerita indah dan hal-hal baik yang tidak terduga.</p></div></section>
 
-<section class="story">
-<img src="caca2.jpeg">
-<div class="text">
-<h2>Seseorang yang Spesial ✨</h2>
-<p>Karena hari ini adalah hari seseorang yang pantas mendapatkan banyak kebahagiaan dan senyum.</p>
-</div>
-</section>
-
-<section class="story">
-<img src="caca3.jpeg">
-<div class="text">
-<h2>Harapan Terbaik 🌷</h2>
-<p>Semoga setiap langkahmu dipenuhi cerita indah, keberanian, dan hal-hal baik yang tidak terduga.</p>
-</div>
-</section>
-
-<section class="letter">
+<section class="letter" id="letter">
 <div class="card">
 <h2>Selamat Ulang Tahun, Cacut ✨</h2>
-<p>Hari ini adalah tentang merayakan dirimu, perjalananmu, dan semua hal baik yang telah kamu lalui hingga sampai di titik ini.</p>
-<p>Semoga di usia yang baru ini kamu selalu diberikan kesehatan, kebahagiaan, dan kekuatan untuk menghadapi setiap tantangan yang datang.</p>
-<p>Semoga impian yang sedang kamu perjuangkan satu per satu menemukan jalannya untuk menjadi kenyataan.</p>
-<p>Terima kasih karena sudah menjadi dirimu sendiri. Dunia membutuhkan lebih banyak orang yang tulus, kuat, dan penuh semangat seperti dirimu.</p>
-<p>Jangan lupa untuk tersenyum, menikmati setiap proses, dan bangga terhadap setiap pencapaian yang sudah berhasil kamu raih.</p>
-<p>Happy Birthday, Cacut ❤️</p>
+<p>Semoga di usia yang baru ini kamu selalu diberikan kesehatan, kebahagiaan, dan kekuatan untuk menghadapi setiap tantangan.</p>
+<p>Semoga semua impian yang sedang kamu perjuangkan menemukan jalannya untuk menjadi kenyataan.</p>
+<p>Terima kasih karena sudah menjadi dirimu sendiri. Happy Birthday, Cacut ❤️</p>
 </div>
 </section>
 
@@ -121,34 +63,89 @@ to{transform:translateY(110vh);opacity:0}
 </section>
 
 <script>
+```javascript
+let autoScroll;
+let scrolling = false;
+
 function openGift(){
+
+if(scrolling) return;
+scrolling = true;
+
 document.getElementById('music').play().catch(()=>{});
-window.scrollTo({top:window.innerHeight,behavior:'smooth'});
-confetti({particleCount:250,spread:180,origin:{y:0.6}});
+
+confetti({
+particleCount:250,
+spread:180,
+origin:{y:0.6}
+});
+
 setInterval(heart,400);
 setInterval(star,700);
+
+window.scrollTo({
+top:window.innerHeight,
+behavior:'smooth'
+});
+
+setTimeout(() => {
+
+autoScroll = setInterval(() => {
+
+window.scrollBy(0,2);
+
+const letter = document.getElementById('letter');
+
+if(window.scrollY >= letter.offsetTop - 150){
+
+clearInterval(autoScroll);
+
+document.getElementById('autoText').innerHTML =
+'💌 Silakan lanjut membaca';
+
 }
+
+},16);
+
+},1500);
+
+}
+
 function heart(){
+
 const e=document.createElement('div');
+
 e.className='heart';
 e.innerHTML='❤️';
+
 e.style.left=Math.random()*100+'vw';
 e.style.fontSize=(20+Math.random()*20)+'px';
 e.style.animationDuration=(4+Math.random()*4)+'s';
+
 document.body.appendChild(e);
-setTimeout(()=>e.remove(),8000);
+
+setTimeout(()=>{
+e.remove();
+},8000);
+
 }
+
 function star(){
+
 const e=document.createElement('div');
+
 e.className='sparkle';
-const a=['✨','⭐','💖'];
-e.innerHTML=a[Math.floor(Math.random()*a.length)];
+e.innerHTML=['✨','⭐','💖'][Math.floor(Math.random()*3)];
+
 e.style.left=Math.random()*100+'vw';
 e.style.fontSize=(18+Math.random()*15)+'px';
 e.style.animationDuration=(5+Math.random()*4)+'s';
+
 document.body.appendChild(e);
-setTimeout(()=>e.remove(),9000);
+
+setTimeout(()=>{
+e.remove();
+},9000);
+
 }
-</script>
-</body>
-</html>
+```
