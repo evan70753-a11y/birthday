@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -6,7 +7,7 @@
 
 <title>Happy Birthday Cacut ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
@@ -18,105 +19,151 @@ padding:0;
 box-sizing:border-box;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
-font-family:'Quicksand',sans-serif;
-background:linear-gradient(
-135deg,
-#ff6b9d,
-#c471ed,
-#12c2e9
-);
-min-height:100vh;
+font-family:'Poppins',sans-serif;
+background:#111;
+color:white;
 overflow-x:hidden;
+}
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff6b9d,#c471ed,#12c2e9);
+text-align:center;
 padding:20px;
 }
 
-.container{
-max-width:900px;
-margin:auto;
-}
-
-.card{
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(20px);
--webkit-backdrop-filter:blur(20px);
-border:1px solid rgba(255,255,255,.25);
-border-radius:30px;
-padding:35px;
-text-align:center;
-color:white;
-box-shadow:0 20px 50px rgba(0,0,0,.15);
-}
-
-h1{
+.hero h1{
 font-family:'Playfair Display',serif;
-font-size:3.2rem;
-margin-bottom:10px;
-text-shadow:
-0 0 15px rgba(255,255,255,.6),
-0 0 30px rgba(255,255,255,.3);
+font-size:4rem;
+margin-bottom:20px;
+text-shadow:0 0 20px rgba(255,255,255,.5);
 }
 
-h2{
-font-weight:500;
-margin-bottom:15px;
-}
-
-#content{
-display:none;
+.hero p{
+font-size:1.1rem;
+opacity:.9;
 }
 
 .envelope{
-font-size:90px;
+font-size:100px;
 cursor:pointer;
+margin-top:30px;
 animation:bounce 2s infinite;
 }
 
 @keyframes bounce{
 0%,100%{transform:translateY(0);}
-50%{transform:translateY(-10px);}
+50%{transform:translateY(-15px);}
 }
 
-.slider{
-width:340px;
-height:450px;
-margin:25px auto;
+.story{
+position:relative;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
 overflow:hidden;
-border-radius:25px;
-box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
-.slider img{
+.story img{
+position:absolute;
 width:100%;
 height:100%;
 object-fit:cover;
+filter:brightness(.45);
+}
+
+.story-text{
+position:relative;
+z-index:2;
+max-width:700px;
+padding:30px;
+text-align:center;
+}
+
+.story-text h2{
+font-family:'Playfair Display',serif;
+font-size:3rem;
+margin-bottom:20px;
+}
+
+.story-text p{
+font-size:1.3rem;
+line-height:1.8;
+}
+
+.letter-section{
+min-height:100vh;
+padding:100px 20px;
+background:linear-gradient(180deg,#0f172a,#1e293b);
+}
+
+.letter-container{
+max-width:850px;
+margin:auto;
 }
 
 .letter{
-background:rgba(255,255,255,.18);
-border-radius:20px;
-padding:20px;
-margin:15px 0;
-font-size:18px;
-line-height:1.9;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.1);
+padding:30px;
+border-radius:25px;
+margin-bottom:20px;
 opacity:0;
-transform:translateY(30px);
+transform:translateY(50px);
+transition:1s;
 }
 
-.fadeUp{
-animation:fadeUp 1s forwards;
-}
-
-@keyframes fadeUp{
-to{
+.letter.show{
 opacity:1;
 transform:translateY(0);
 }
+
+.letter p{
+font-size:1.15rem;
+line-height:2;
 }
 
-.footer{
-margin-top:25px;
-opacity:.8;
+.final{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+background:linear-gradient(135deg,#ff6b9d,#c471ed,#12c2e9);
+}
+
+.final h1{
+font-family:'Playfair Display',serif;
+font-size:4rem;
+margin-bottom:20px;
+}
+
+.final p{
+font-size:1.3rem;
+max-width:700px;
+}
+
+.btn{
+margin-top:30px;
+padding:15px 30px;
+border:none;
+border-radius:50px;
+font-size:18px;
+cursor:pointer;
+font-weight:600;
 }
 
 .heart,
@@ -138,99 +185,148 @@ opacity:0;
 }
 }
 
-@media(max-width:600px){
+@media(max-width:768px){
 
-h1{
-font-size:2.2rem;
+.hero h1,
+.final h1{
+font-size:2.6rem;
 }
 
-.slider{
-width:280px;
-height:360px;
+.story-text h2{
+font-size:2rem;
 }
 
-.letter{
-font-size:16px;
+.story-text p{
+font-size:1rem;
+}
+
+.letter p{
+font-size:1rem;
 }
 
 }
 
 </style>
 </head>
+
 <body>
 
-<div class="container">
-
-<div class="card" id="cover">
+<section class="hero" id="hero">
 
 <h1>Happy Birthday ❤️</h1>
-<h2>Cacut</h2>
+<p>Untuk seseorang yang spesial...</p>
 
-<p style="margin-bottom:20px">
-Ada sesuatu untukmu ✨
-</p>
-
-<div class="envelope" onclick="openGift()">
+<div class="envelope" onclick="startStory()">
 💌
 </div>
 
-<p style="margin-top:10px">
-Klik amplop untuk membuka hadiah
+<p>Klik amplop untuk membuka cerita</p>
+
+</section>
+
+<section class="story">
+
+<img src="caca1.jpeg">
+
+<div class="story-text">
+<h2>Chapter 1 ✨</h2>
+<p>
+Ada banyak hari yang berlalu begitu saja,
+tetapi hari ini terasa sedikit berbeda.
+</p>
+</div>
+
+</section>
+
+<section class="story">
+
+<img src="caca2.jpeg">
+
+<div class="story-text">
+<h2>Chapter 2 ❤️</h2>
+<p>
+Karena hari ini adalah hari seseorang
+yang membawa warna tersendiri dalam cerita hidupnya.
+</p>
+</div>
+
+</section>
+
+<section class="story">
+
+<img src="caca3.jpeg">
+
+<div class="story-text">
+<h2>Chapter 3 🌷</h2>
+<p>
+Seseorang yang pantas mendapatkan
+banyak kebahagiaan, tawa, dan hal-hal baik.
+</p>
+</div>
+
+</section>
+
+<section class="letter-section">
+
+<div class="letter-container">
+
+<div class="letter">
+<p>
+Selamat ulang tahun, Cacut ✨
+</p>
+</div>
+
+<div class="letter">
+<p>
+Semoga di usia yang baru ini kamu selalu diberikan kesehatan,
+kebahagiaan, dan kekuatan untuk menghadapi setiap tantangan.
+</p>
+</div>
+
+<div class="letter">
+<p>
+Semoga semua impian yang sedang kamu perjuangkan
+satu per satu menemukan jalannya untuk menjadi kenyataan.
+</p>
+</div>
+
+<div class="letter">
+<p>
+Terima kasih karena sudah menjadi pribadi yang luar biasa,
+dan semoga hidup selalu mempertemukanmu
+dengan banyak alasan untuk tersenyum.
+</p>
+</div>
+
+<div class="letter">
+<p>
+Hari ini adalah harimu.
+Nikmati setiap momennya,
+rayakan setiap pencapaianmu,
+dan jangan lupa untuk bangga pada dirimu sendiri.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="final">
+
+<h1>🎂 Happy Birthday Cacut 🎂</h1>
+
+<p>
+Semoga semua yang baik menemukan jalannya menuju kamu.
+Semoga tahun ini menjadi tahun yang penuh cerita indah,
+kejutan menyenangkan, dan kebahagiaan yang tak terduga.
+❤️
 </p>
 
-</div>
+<button class="btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+❤️ Putar Lagi
+</button>
 
-<div class="card" id="content">
-
-<h1>Happy Birthday Cacut ❤️</h1>
-
-<div class="slider">
-<img id="slide" src="caca1.jpeg">
-</div>
-
-<div id="letters">
-
-<div class="letter">
-💌 Selamat ulang tahun, Cacut ✨
-</div>
-
-<div class="letter">
-Semoga di usia yang baru ini kamu selalu diberikan kesehatan, kebahagiaan, dan banyak alasan untuk tersenyum setiap harinya.
-</div>
-
-<div class="letter">
-Semoga semua hal baik yang sedang kamu perjuangkan dapat menemukan jalannya untuk menjadi kenyataan.
-</div>
-
-<div class="letter">
-Terima kasih sudah menjadi pribadi yang membawa warna indah bagi orang-orang di sekitarmu.
-</div>
-
-<div class="letter">
-Semoga langkahmu selalu dipenuhi keberanian, hatimu dipenuhi ketenangan, dan harimu dipenuhi kebahagiaan.
-</div>
-
-<div class="letter">
-Hari ini adalah harimu. Nikmati setiap momennya, tertawa lebih banyak, dan jangan lupa untuk selalu menghargai dirimu sendiri.
-</div>
-
-<div class="letter">
-Karena kamu pantas mendapatkan banyak hal baik dalam hidup. ❤️
-</div>
-
-<div class="letter">
-🎂 Happy Birthday, Cacut 🎂
-</div>
-
-</div>
-
-<div class="footer">
-Made with ❤️
-</div>
-
-</div>
-
-</div>
+</section>
 
 <audio id="music">
 <source src="serta-mulia.mpeg" type="audio/mpeg">
@@ -238,54 +334,23 @@ Made with ❤️
 
 <script>
 
-const photos=[
-"caca1.jpeg",
-"caca2.jpeg",
-"caca3.jpeg"
-];
-
-let current=0;
-
-setInterval(()=>{
-
-const slide=document.getElementById("slide");
-
-if(slide){
-
-current=(current+1)%photos.length;
-slide.src=photos[current];
-
-}
-
-},3000);
-
-function openGift(){
-
-document.getElementById("cover").style.display="none";
-document.getElementById("content").style.display="block";
+function startStory(){
 
 document.getElementById("music").play();
 
 confetti({
-particleCount:300,
+particleCount:250,
 spread:180,
 origin:{y:0.6}
 });
 
-const letters=document.querySelectorAll(".letter");
-
-letters.forEach((item,index)=>{
-
-setTimeout(()=>{
-
-item.classList.add("fadeUp");
-
-},index*700);
-
+window.scrollTo({
+top:window.innerHeight,
+behavior:'smooth'
 });
 
-setInterval(createHeart,300);
-setInterval(createSparkle,500);
+setInterval(createHeart,350);
+setInterval(createSparkle,600);
 
 }
 
@@ -297,14 +362,12 @@ heart.className="heart";
 heart.innerHTML="❤️";
 
 heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(20+Math.random()*15)+"px";
+heart.style.fontSize=(18+Math.random()*20)+"px";
 heart.style.animationDuration=(4+Math.random()*4)+"s";
 
 document.body.appendChild(heart);
 
-setTimeout(()=>{
-heart.remove();
-},8000);
+setTimeout(()=>heart.remove(),8000);
 
 }
 
@@ -325,13 +388,30 @@ sparkle.style.animationDuration=(5+Math.random()*4)+"s";
 
 document.body.appendChild(sparkle);
 
-setTimeout(()=>{
-sparkle.remove();
-},9000);
+setTimeout(()=>sparkle.remove(),9000);
 
 }
+
+const observer=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+});
+
+document.querySelectorAll(".letter").forEach(el=>{
+observer.observe(el);
+});
 
 </script>
 
 </body>
 </html>
+```
